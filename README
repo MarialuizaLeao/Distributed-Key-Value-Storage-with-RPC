@@ -1,0 +1,10 @@
+```bash
+$> server.py -h
+usage: server.py [-h] PORT [CONTROL_FLAG]
+
+positional arguments:
+  PORT              Servers port
+  CONTROL_FLAG      Control flag
+
+options:
+  -h, --help     show this help message and exit

@@ -1,0 +1,53 @@
+/* Arquivo de definição da interface entre cliente e servidor
+ * Estamos usando a versão 3 de protocol buffers 
+ */
+
+syntax = "proto3";
+
+package server;
+
+service server
+{
+    rpc insert(insertRequest) returns (insertResponse);
+    rpc consult(consultRequest) returns (consultResponse);
+    rpc activate(activateRequest) returns (activateResponse);
+    rpc terminate(Empty) returns (terminateResponse);
+}
+
+message insertRequest
+{
+    int32 key = 1;
+    string value = 2;
+}
+
+message insertResponse
+{
+    int32 success = 1;
+}
+
+message consultRequest
+{
+    int32 key = 1;
+}
+
+message consultResponse
+{
+    string value = 1;
+}
+
+message activateRequest
+{
+    string centralServerID = 1;
+}
+
+message activateResponse
+{
+    int32 amountOfActivatedKeys = 1;
+}
+
+message terminateResponse
+{
+    int32 key = 1;
+}
+
+message Empty {}

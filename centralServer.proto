@@ -1,0 +1,42 @@
+/* Arquivo de definição da interface entre cliente e servidor
+ * Estamos usando a versão 3 de protocol buffers 
+ */
+
+syntax = "proto3";
+
+package centralServer;
+
+service centralServer
+{
+    rpc register(registerRequest) returns (registerResponse);
+    rpc map(mapRequest) returns (mapResponse);
+    rpc terminate(Empty) returns (terminateResponse);
+}
+
+message registerRequest
+{
+    string serverID = 1;
+    repeated int32 keyList = 2;
+}
+
+message registerResponse
+{
+    int32 amountOfRegisteredKeys = 1;
+}
+
+message mapRequest
+{
+    int32 key = 1;
+}
+
+message mapResponse
+{
+    string serverID = 1;
+}
+
+message terminateResponse
+{
+    int32 amountOfRegisteredKeys = 1;
+}
+
+message Empty {}
