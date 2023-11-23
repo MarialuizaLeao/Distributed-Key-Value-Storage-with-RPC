@@ -1,26 +1,24 @@
+run_cli_pares: server_pb2.py centralServer_pb2.py
+	python3 cln_par.py $(arg)
 
-.PHONY: clean run_cli_pares run_serv_pares_1 run_serv_pares_2 run_serv_central run_cli_central
+run_serv_pares_1: server_pb2.py centralServer_pb2.py
+	python3 svc_par.py $(arg)
+
+run_serv_pares_2: server_pb2.py centralServer_pb2.py
+	python3 svc_par.py $(arg) --servent
+
+run_serv_central: server_pb2.py centralServer_pb2.py
+	pytho3 svc_cen.py $(arg)
+
+run_cli_central: server_pb2.py centralServer_pb2.py
+	python3 cln_cen.py $(arg)
+
+server_pb2.py: proto/server.proto
+	python3 -m grpc_tools.protoc --proto_path=./proto --python_out=./proto --grpc_python_out=./proto server.proto
+
+centralServer_pb2.py: proto/centralServer.proto
+	python3 -m grpc_tools.protoc --proto_path=./proto --python_out=./proto --grpc_python_out=./proto centralServer.proto
 
 clean:
-    # Remove all intermediate files
-    rm -rf intermediate_files
-
-run_cli_pares:
-    # Run the client program of the first part
-    ./client_pares
-
-run_serv_pares_1:
-    # Run the peer server program with the behavior of the first part
-    ./server_pares_1
-
-run_serv_pares_2:
-    # Run the peer server program with the behavior of the second part
-    ./server_pares_2
-
-run_serv_central:
-    # Run the server program of the second part
-    ./server_central
-
-run_cli_central:
-    # Run the client program of the second part
-    ./client_central
+	rm -f proto/*_pb2*.* 
+	rm -rf __pycache__

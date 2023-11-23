@@ -3,8 +3,8 @@ import sys
 import grpc
 import socket
 import threading
-import centralServer_pb2 as messages
-import centralServer_pb2_grpc as services
+from proto import centralServer_pb2 as messages
+from proto import centralServer_pb2_grpc as services
 
 class centralServer(services.centralServerServicer):
     def __init__(self, stop_event):
