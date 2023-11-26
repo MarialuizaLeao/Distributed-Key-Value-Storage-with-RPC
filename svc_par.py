@@ -40,7 +40,7 @@ class Server(services.serverServicer):
         """
             
             ● consult - receives as parameter a positive integer (key) and returns the string
-            ---------  content associated with the key, if it exists, or an empty string otherwise;
+            ---------   content associated with the key, if it exists, or an empty string otherwise;
 
         """
         
@@ -55,8 +55,8 @@ class Server(services.serverServicer):
         """ 
 
             ● activate - receives as parameter the ID of the central server and returns the
-            ----------  number of keys that were activated (i.e., that were not already active); if
-                        the service is not active, it returns 0;
+            ----------   number of keys that were activated (i.e., that were not already active); if
+                         the service is not active, it returns 0;
         """
         
         if not self.flag:
@@ -72,7 +72,7 @@ class Server(services.serverServicer):
         """
 
             ● terminate - terminates the server, returning the number of keys that were
-            -----------  active at the time of termination;
+            -----------   active at the time of termination;
         
         """
         
@@ -94,7 +94,7 @@ def run():
         # add the serverServicer to the server without the flag(=False)
         services.add_serverServicer_to_server(Server(stop_event), server)
         
-    # get the host using the socket library
+    # set to default host
     host = "0.0.0.0"
     
     # get the port from the command line
