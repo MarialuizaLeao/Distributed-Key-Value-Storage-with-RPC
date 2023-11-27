@@ -15,12 +15,12 @@ run_serv_central: server_pb2.py centralServer_pb2.py
 run_cli_central: server_pb2.py centralServer_pb2.py
 	python3 cln_cen.py $(arg)
 
-server_pb2.py: proto/server.proto
-	python3 -m grpc_tools.protoc --proto_path=./proto --python_out=./proto --grpc_python_out=./proto server.proto
+server_pb2.py: server.proto
+	python3 -m grpc_tools.protoc --proto_path=. --python_out=. --grpc_python_out=. server.proto
 
-centralServer_pb2.py: proto/centralServer.proto
-	python3 -m grpc_tools.protoc --proto_path=./proto --python_out=./proto --grpc_python_out=./proto centralServer.proto
+centralServer_pb2.py: centralServer.proto
+	python3 -m grpc_tools.protoc --proto_path=. --python_out=. --grpc_python_out=. centralServer.proto
 
 clean:
-	rm -f proto/*_pb2*.*
-	rm -rf proto/__pycache__
+	rm -f *_pb2*.*
+	rm -rf __pycache__

@@ -2,8 +2,8 @@ from concurrent import futures
 import sys
 import grpc
 import socket
-from proto import server_pb2 as messages
-from proto import server_pb2_grpc as services
+import server_pb2 as messages
+import server_pb2_grpc as services
 
 def run():
     # open a channel to the server
