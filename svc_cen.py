@@ -15,7 +15,7 @@ class centralServer(centralServer_pb2_grpc.centralServerServicer):
         self.serversDict = dict() # dictionary to store the pairs (key, serverID)
         self._stop_event = stop_event # stop event to terminate the server only after isends the response to the client
         
-    def register(self, request, context) -> int:
+    def register(self, request, context):
         
         """
             
@@ -32,7 +32,7 @@ class centralServer(centralServer_pb2_grpc.centralServerServicer):
             self.serversDict[key] = serverID
         return centralServer_pb2.registerResponse(amountOfRegisteredKeys = len(keyList))
         
-    def map(self, request, context) -> int:
+    def map(self, request, context):
         
         """
             

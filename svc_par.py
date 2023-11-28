@@ -18,7 +18,7 @@ class Server(server_pb2_grpc.serverServicer):
         self.ID = f"{socket.getfqdn()}:{sys.argv[1]}" # ID of the server
         self._stop_event = stop_event # stop event to terminate the server
         
-    def insert(self, request, context) -> int:
+    def insert(self, request, context):
         
         """
         ● insert - receives as parameters a positive integer (key) and a string (value) and
@@ -35,7 +35,7 @@ class Server(server_pb2_grpc.serverServicer):
             self.pairs[key] = value
             return server_pb2.insertResponse(success = 0) 
     
-    def consult(self, request, context) -> str:
+    def consult(self, request, context):
         
         """
             
@@ -50,7 +50,7 @@ class Server(server_pb2_grpc.serverServicer):
         else:
             return server_pb2.consultResponse(value = "")
         
-    def activate(self, request, context) -> int:
+    def activate(self, request, context):
         
         """ 
 
