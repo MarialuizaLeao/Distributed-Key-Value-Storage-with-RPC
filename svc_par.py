@@ -84,15 +84,15 @@ def run():
     stop_event = threading.Event()
     
     # create the server
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    server_ = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     
     # if the server is expected to communicate with the central server
     if len(sys.argv) == 3:
         # add the serverServicer to the server with the flag set to True
-        server_pb2_grpc.add_serverServicer_to_server(server(stop_event, flag = True), server)
+        server_pb2_grpc.add_serverServicer_to_server(server(stop_event, flag = True), server_)
     else:
         # add the serverServicer to the server without the flag(=False)
-        server_pb2_grpc.add_serverServicer_to_server(server(stop_event), server)
+        server_pb2_grpc.add_serverServicer_to_server(server(stop_event), server_)
         
     # set to default host
     host = "0.0.0.0"
