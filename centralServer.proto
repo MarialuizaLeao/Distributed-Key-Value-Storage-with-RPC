@@ -8,9 +8,9 @@ package centralServer;
 
 service centralServer
 {
-    rpc register(registerRequest) returns (registerResponse);
-    rpc map(mapRequest) returns (mapResponse);
-    rpc terminate(Empty) returns (terminateResponse);
+    rpc register(registerRequest) returns (registerResponse){};
+    rpc map(mapRequest) returns (mapResponse){};
+    rpc terminate(Empty) returns (terminateResponse){};
 }
 
 message registerRequest

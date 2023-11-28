@@ -8,10 +8,10 @@ package server;
 
 service server
 {
-    rpc insert(insertRequest) returns (insertResponse);
-    rpc consult(consultRequest) returns (consultResponse);
-    rpc activate(activateRequest) returns (activateResponse);
-    rpc terminate(Empty) returns (terminateResponse);
+    rpc insert(insertRequest) returns (insertResponse){};
+    rpc consult(consultRequest) returns (consultResponse){};
+    rpc activate(activateRequest) returns (activateResponse){};
+    rpc terminate(Empty) returns (terminateResponse){};
 }
 
 message insertRequest
