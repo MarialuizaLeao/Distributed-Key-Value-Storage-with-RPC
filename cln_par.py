@@ -2,6 +2,7 @@ from concurrent import futures
 import sys
 import grpc
 import socket
+import logging
 import server_pb2
 import server_pb2_grpc
 

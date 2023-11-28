@@ -3,6 +3,7 @@ import sys
 import grpc
 import socket
 import threading
+import logging
 import server_pb2
 import server_pb2_grpc
 import centralServer_pb2
