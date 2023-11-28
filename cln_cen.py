@@ -62,4 +62,5 @@ def run():
     channel.close() 
     
 if __name__ == '__main__':
+    logging.basicConfig()
     run()

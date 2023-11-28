@@ -88,4 +88,5 @@ def run():
     server.stop(1)
     
 if __name__ == "__main__":
+    logging.basicConfig()
     run()
