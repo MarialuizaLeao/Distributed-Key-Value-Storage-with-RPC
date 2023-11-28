@@ -10,7 +10,6 @@ import centralServer_pb2_grpc as services
 class centralServer(services.centralServerServicer):
     def __init__(self, stop_event):
         
-        super(centralServer, self).__init__()
         
         self.serversDict = dict() # dictionary to store the pairs (key, serverID)
         self._stop_event = stop_event # stop event to terminate the server only after isends the response to the client
