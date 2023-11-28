@@ -101,16 +101,16 @@ def run():
     port = sys.argv[1]
     
     # add the insecure port to the server
-    server.add_insecure_port(f"{host}:{port}")
+    server_.add_insecure_port(f"{host}:{port}")
     
     # start the server
-    server.start()
+    server_.start()
     
     # wait for the stop event
     stop_event.wait()
     
     # wait 1 second(so the message can be send to the client before it terminates) and stop the server
-    server.stop(1)
+    server_.stop(1)
     
 if __name__ == "__main__":
     logging.basicConfig()
